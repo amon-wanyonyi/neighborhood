@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <div class="content-info text-dark">
+      <h1 class="text-center">Welcome To Hood</h1>
+      <h4 class="text-center">It's where communities come together to greet newcomers, <br>
+        exchange recommendations, and read the latest local news. <br>
+        Where neighbors support local businesses and get updates from public agencies. <br>
+        Where neighbors borrow tools and sell couches. <br> It's how to get the most out of 
+        everything nearby. Welcome, neighbor.</h4>
+    </div>
+
+  <div class="container pb-5 mb-5">
+    
+    <h2 class="text-center pt-5 mb-5">Easily Accessible Business Around Us</h2>
+    <div class="row">
+      {% for business in businesses  %}
+          <div class="col-md-4 p-3">
+            <div class="card">
+              <img src="{{business.business_image.url}}" alt="" class="img-fluid">
+              <div class="card-body">
+                <a href="{% url 'business-detail' business.pk %}"><p class="card-text">{{business.name}}</p></a>
+                <p class="card-text">{{business.location}}</p>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+    <div class="div">
+      <h3 class="pt-5 mt-5 text-center">Helplines For Your Neighborhood</h3>
+      <p>Get Easy Instant Help </p>
+    </div>
+    <div class="row pt-3">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <p>St Johns Ambulance</p>
+            <p class="card-text">Contact <br>0721 611 555.</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <p>Police Muthangari</p>
+            <p class="card-text">Contact <br> 911</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <p>Gas Filling</p>
+            <p class="card-text"> Contact <br> 0111 010 400</p>
+          </div>
+        </div>
+      </div>
+      <div class="about text-center pt-5 mt-5">
+        <h2>Quote</h2>
+        <p class="pt-3">All will concede that in order to have good neighbors, we must also be good neighbors. That applies in every field of human endeavor.
+        </p>
+      </div>
+     
+    </div>
+  </div>
+
+{% endblock %} 
